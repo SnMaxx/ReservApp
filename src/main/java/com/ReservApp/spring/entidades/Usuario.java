@@ -22,8 +22,6 @@ public class Usuario {
     private Integer id;
     
     private String nombre;
-    private String apellido;
-    private Integer numeroTel;
     
     @Column(unique = true)
     private String email;
@@ -31,10 +29,8 @@ public class Usuario {
     private String password;
 
 
-    public Usuario(String nombre, String apellido, Integer numeroTel, String email, String password) {
+    public Usuario(String nombre, String email, String password) {
         this.nombre = nombre;
-        this.apellido = apellido;
-        this.numeroTel = numeroTel;
         this.email = email;
         this.password = password;
     }
@@ -58,22 +54,6 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public Integer getNumeroTel() {
-        return numeroTel;
-    }
-
-    public void setNumeroTel(Integer numeroTel) {
-        this.numeroTel = numeroTel;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -92,7 +72,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", numeroTel=" + numeroTel + ", email=" + email + ", password=" + password + '}';
+        return "Usuario{" + "id=" + id + ", nombre=" + nombre + ", email=" + email + ", password=" + password + '}';
     }
     
 }
