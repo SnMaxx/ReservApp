@@ -16,7 +16,7 @@ public interface ReservaRepositorio extends JpaRepository<Reserva, Integer>{
   //  @Query("SELECT c FROM Usuario c WHERE c.email = :email")
   //  public Usuario findByEmail(@Param("email") String email);
     
-    @Query("SELECT r FROM Reserva r WHERE r.turno = :turno")
-    public List<Reserva> mesaDispo(@Param("turno") String turno);
+    //@Query("SELECT r FROM Reserva r WHERE r.turno = :turno")
+    //public List<Reserva> mesaDispo(@Param("turno") String turno);
     
 }

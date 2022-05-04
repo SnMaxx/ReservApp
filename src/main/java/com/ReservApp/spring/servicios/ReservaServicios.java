@@ -38,13 +38,13 @@ public class ReservaServicios {
             throw new Exception("Turno invalido");
         if(mesa==null)
             throw new Exception("No se han seleccionado las mesas");
-        if(mesaDispo(mesa,turno))
-            throw new Exception("Ya no hay mesas disponibles");
+        //if(mesaDispo(mesa,turno))
+        //    throw new Exception("Ya no hay mesas disponibles");
         if(precio<=0)
             throw new Exception("Precio invalido");
     }
     
-    public boolean mesaDispo(Mesa mesa, Turno turno){
-        return (reservaRepositorio.mesaDispo(mesa, turno));
-    }
+    //public boolean mesaDispo(Mesa mesa, Turno turno){
+    //    return (reservaRepositorio.mesaDispo(mesa, turno).length()<20);
+    //}
 }
