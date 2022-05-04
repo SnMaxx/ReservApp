@@ -15,19 +15,21 @@ import javax.persistence.Id;
  * @author snmax
  */
 @Entity
-class Producto {
+public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nombre;
     private Integer precio;
+    private String img;
 
     public Producto() {
     }
 
-    public Producto(String nombre, Integer precio) {
+    public Producto(String nombre, Integer precio, String img) {
         this.nombre = nombre;
         this.precio = precio;
+        this.img = img;
     }
 
     public Integer getId() {
@@ -54,9 +56,16 @@ class Producto {
         this.precio = precio;
     }
 
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
     @Override
     public String toString() {
-        return "Producto{" + "id=" + id + ", nombre=" + nombre + ", precio=" + precio + '}';
+        return "Producto{" + "id=" + id + ", nombre=" + nombre + ", precio=" + precio + ", img=" + img + '}';
     }
-    
 }

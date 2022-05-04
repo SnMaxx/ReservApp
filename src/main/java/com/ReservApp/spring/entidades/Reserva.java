@@ -6,18 +6,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Reserva {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @OneToOne
+    @ManyToOne
     private Usuario cliente;
-    private Enum turno;
-    private Integer integrantesMesa;
+    private Turno turno;
+    @OneToOne
+    private Mesa mesa;
     @OneToMany
     private List<Producto> comida;
     private Integer precio;
@@ -25,10 +28,10 @@ public class Reserva {
     public Reserva() {
     }
 
-    public Reserva(Usuario cliente, Enum turno, Integer integrantesMesa, List<Producto> comida, Integer precio) {
+    public Reserva(Usuario cliente, Turno turno, Mesa mesa, List<Producto> comida, Integer precio) {
         this.cliente = cliente;
         this.turno = turno;
-        this.integrantesMesa = integrantesMesa;
+        this.mesa = mesa;
         this.comida = comida;
         this.precio = precio;
     }
@@ -53,16 +56,16 @@ public class Reserva {
         return turno;
     }
 
-    public void setTurno(Enum turno) {
+    public void setTurno(Turno turno) {
         this.turno = turno;
     }
 
-    public Integer getIntegrantesMesa() {
-        return integrantesMesa;
+    public Mesa getMesa() {
+        return mesa;
     }
 
-    public void setIntegrantesMesa(Integer integrantesMesa) {
-        this.integrantesMesa = integrantesMesa;
+    public void setMesa(Mesa mesa) {
+        this.mesa = mesa;
     }
 
     public List<Producto> getComida() {
@@ -83,8 +86,7 @@ public class Reserva {
 
     @Override
     public String toString() {
-        return "Reserva{" + "id=" + id + ", cliente=" + cliente + ", turno=" + turno + ", integrantesMesa=" + integrantesMesa + ", comida=" + comida + ", precio=" + precio + '}';
+        return "Reserva{" + "id=" + id + ", cliente=" + cliente + ", turno=" + turno + ", mesa=" + mesa + ", comida=" + comida + ", precio=" + precio + '}';
     }
-    
-    
+
 }
