@@ -1,6 +1,7 @@
 
 package com.ReservApp.spring.entidades;
 
+import com.ReservApp.spring.enumeracion.Turno;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

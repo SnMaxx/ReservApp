@@ -2,7 +2,7 @@ package com.ReservApp.spring.repositorios;
 
 import com.ReservApp.spring.entidades.Mesa;
 import com.ReservApp.spring.entidades.Reserva;
-import com.ReservApp.spring.entidades.Turno;
+import com.ReservApp.spring.enumeracion.Turno;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

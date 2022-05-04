@@ -9,7 +9,7 @@ package com.ReservApp.spring.servicios;
 import com.ReservApp.spring.entidades.Mesa;
 import com.ReservApp.spring.entidades.Producto;
 import com.ReservApp.spring.entidades.Reserva;
-import com.ReservApp.spring.entidades.Turno;
+import com.ReservApp.spring.enumeracion.Turno;
 import com.ReservApp.spring.entidades.Usuario;
 import com.ReservApp.spring.repositorios.ReservaRepositorio;
 import java.util.List;
