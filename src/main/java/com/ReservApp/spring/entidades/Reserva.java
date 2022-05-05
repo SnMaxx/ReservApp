@@ -2,6 +2,7 @@
 package com.ReservApp.spring.entidades;
 
 import com.ReservApp.spring.enumeracion.Turno;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Reserva {
@@ -25,16 +28,19 @@ public class Reserva {
     @OneToMany
     private List<Producto> comida;
     private Integer precio;
+    @Temporal(TemporalType.DATE)
+    private Date dia;
 
     public Reserva() {
     }
 
-    public Reserva(Usuario cliente, Turno turno, Mesa mesa, List<Producto> comida, Integer precio) {
+    public Reserva(Usuario cliente, Turno turno, Mesa mesa, List<Producto> comida, Integer precio, Date dia) {
         this.cliente = cliente;
         this.turno = turno;
         this.mesa = mesa;
         this.comida = comida;
         this.precio = precio;
+        this.dia = dia;
     }
 
     public Integer getId() {
@@ -85,9 +91,17 @@ public class Reserva {
         this.precio = precio;
     }
 
+    public Date getDia() {
+        return dia;
+    }
+
+    public void setDia(Date dia) {
+        this.dia = dia;
+    }
+
     @Override
     public String toString() {
-        return "Reserva{" + "id=" + id + ", cliente=" + cliente + ", turno=" + turno + ", mesa=" + mesa + ", comida=" + comida + ", precio=" + precio + '}';
+        return "Reserva{" + "id=" + id + ", cliente=" + cliente + ", turno=" + turno + ", mesa=" + mesa + ", comida=" + comida + ", precio=" + precio + ", dia=" + dia + '}';
     }
 
 }
