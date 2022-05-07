@@ -22,14 +22,14 @@ public class Reserva {
     private Integer id;
     @ManyToOne
     private Usuario cliente;
+    @Temporal(TemporalType.DATE)
+    private Date dia;
     private Turno turno;
     @OneToOne
     private Mesa mesa;
     @OneToMany
     private List<Producto> comida;
     private Integer precio;
-    @Temporal(TemporalType.DATE)
-    private Date dia;
 
     public Reserva() {
     }

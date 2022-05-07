@@ -5,6 +5,7 @@
  */
 package com.ReservApp.spring.entidades;
 
+import com.ReservApp.spring.enumeracion.Role;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +28,7 @@ public class Usuario {
     private String email;
     
     private String password;
-
+    private Role rol;
 
     public Usuario(String nombre, String email, String password) {
         this.nombre = nombre;
@@ -70,9 +71,17 @@ public class Usuario {
         this.password = password;
     }
 
+    public Role getRol() {
+        return rol;
+    }
+
+    public void setRol(Role rol) {
+        this.rol = rol;
+    }
+
     @Override
     public String toString() {
-        return "Usuario{" + "id=" + id + ", nombre=" + nombre + ", email=" + email + ", password=" + password + '}';
+        return "Usuario{" + "id=" + id + ", nombre=" + nombre + ", email=" + email + ", password=" + password + ", rol=" + rol + '}';
     }
-    
+
 }

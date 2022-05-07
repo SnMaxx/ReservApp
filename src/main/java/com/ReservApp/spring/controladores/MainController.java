@@ -18,12 +18,12 @@ public class MainController {
     
     @GetMapping("/index")
     public String index(){
-        return "index.html";
+        return "index";
     }
 
     @GetMapping("/login")
     public String login(){
-        return "login.html";
+        return "login";
     }
     
     @PostMapping("/login")
@@ -31,21 +31,18 @@ public class MainController {
         try {
             userServ.save(nombre, email, password);
             //modelo.put("exito", "Registro exitoso");
-            return "index.html";
+            return "index";
         } catch(Exception e){
             //modelo.put("error", "Falló al registrar");
-            return "login.html";
+            return "login";
         }
     }
     
-    @GetMapping("/reserva")
-    public String reserva(){
-        return "reserva.html";
-    }
+
     
     @GetMapping("/eliminar-comida")
     public String eliminarComida(){
-        return "eliminar-comida.html";
+        return "eliminar-comida";
     }
     
     @GetMapping("/form-comidas")
@@ -55,11 +52,11 @@ public class MainController {
     
     @GetMapping("/menu")
     public String menu(){
-        return "menu.html";
+        return "menu";
     }
     
     @GetMapping("/resto")
     public String resto(){
-        return "resto.html";
+        return "resto";
     }
 }

@@ -1,7 +1,6 @@
-
 package com.ReservApp.spring.enumeracion;
 
 
-public enum Turno {
-    ALMUERZO,CENA
+public enum Role {
+    ADMIN,USER
 }

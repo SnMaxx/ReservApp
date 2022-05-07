@@ -1,7 +1,14 @@
+com\ReservApp\spring\servicios\ReservaServicios.class
 com\ReservApp\spring\entidades\Producto.class
 com\ReservApp\spring\entidades\Reserva.class
 com\ReservApp\spring\entidades\Usuario.class
 com\ReservApp\spring\controladores\MainController.class
+com\ReservApp\spring\enumeracion\Turno.class
+com\ReservApp\spring\enumeracion\Role.class
+com\ReservApp\spring\controladores\ReservaControlador.class
+com\ReservApp\spring\controladores\UsuarioControlador.class
+com\ReservApp\spring\Config\ConfigSeguridad.class
+com\ReservApp\spring\repositorios\ReservaRepositorio.class
 com\ReservApp\spring\Application.class
 com\ReservApp\spring\servicios\UsuarioServicios.class
 com\ReservApp\spring\repositorios\UsuarioRepositorio.class

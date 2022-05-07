@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="https://www.thymeleaf.org">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,38 +28,24 @@
 
                 <div class = "card-content">
                     <h3>RESERVACIÓN</h3>
-                    <form>
+                    <form th:action="@{/reserva}" method="POST">
                         <div class = "form-row">
-                            <select name = "days">
-                                <option value = "day-select">Día</option>
-                                <option value = "sunday">Domingo</option>
-                                <option value = "monday">Lunes</option>
-                                <option value = "tuesday">Martes</option>
-                                <option value = "wednesday">Miercoles</option>
-                                <option value = "thursday">Jueves</option>
-                                <option value = "friday">Viernes</option>
-                                <option value = "saturday">Sábado</option>
-                            </select>
+                            <input type="date" name="dia">
 
-                            <select name = "hours">
-                                <option value = "hour-select">Hora</option>
-                                <option value = "10">10:00</option>
-                                <option value = "10">12:00</option>
-                                <option value = "10">14:00</option>
-                                <option value = "10">16:00</option>
-                                <option value = "10">18:00</option>
-                                <option value = "10">20:00</option>
-                                <option value = "10">22:00</option>
+                            <select name = "turno">
+                                <option value = "hour-select">Turno</option>
+                                <option value = "ALMUERZO">Almuerzo</option>
+                                <option value = "CENA">Cena</option>
                             </select>
                         </div>
 
                         <div class = "form-row">
-                            <input type = "text" placeholder="Nombre Completo">
-                            <input type = "text" placeholder="Teléfono">
+                            <input type = "text" name="userID" placeholder="ID Usuario">
+                            <input type = "text" placeholder="No completar" disabled>
                         </div>
 
                         <div class = "form-row">
-                            <input type = "number" placeholder="Comensales" min = "1">
+                            <input name="precioT" value="350" disabled>
                             <input type = "submit" value = "CONFIRMAR">
                         </div>
                     </form>
