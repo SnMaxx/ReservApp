@@ -8,6 +8,8 @@ package com.ReservApp.spring.entidades;
 import com.ReservApp.spring.enumeracion.Role;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,6 +30,7 @@ public class Usuario {
     private String email;
     
     private String password;
+    @Enumerated(EnumType.STRING)
     private Role rol;
 
     public Usuario(String nombre, String email, String password) {

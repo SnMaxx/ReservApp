@@ -24,11 +24,11 @@ public class ReservaControlador {
     private ProductoServicios productoServ;
     
     @GetMapping("")
-    public String reserva(/*ModelMap modelo */){
+    public String reserva(ModelMap modelo){
         
-        //List<Producto> productosLista = productoServ.traerTodo();
+        List<Producto> productosLista = productoServ.traerTodo();
         
-        //modelo.addAttribute("comidas", productosLista);
+        modelo.addAttribute("comidas", productosLista);
         
         return "reserva";
     }

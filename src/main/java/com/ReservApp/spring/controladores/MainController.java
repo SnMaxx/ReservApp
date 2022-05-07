@@ -3,7 +3,7 @@ package com.ReservApp.spring.controladores;
 import com.ReservApp.spring.servicios.UsuarioServicios;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-//import org.springframework.ui.ModelMap;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,13 +27,17 @@ public class MainController {
     }
     
     @PostMapping("/login")
-    public String guardar(/*ModelMap modelo, */@RequestParam String nombre, @RequestParam String email, @RequestParam String password) throws Exception{
+    public String logeo(){
+        return "login";
+    }
+    
+    @PostMapping("/register")
+    public String registrar(ModelMap modelo, @RequestParam String nombre, @RequestParam String email, @RequestParam String password, @RequestParam String password2) throws Exception{
         try {
-            userServ.save(nombre, email, password);
-            //modelo.put("exito", "Registro exitoso");
+            userServ.crearUsuario(nombre, email, password, password2);
             return "index";
         } catch(Exception e){
-            //modelo.put("error", "Falló al registrar");
+            modelo.put("error", "Error al registrar");
             return "login";
         }
     }

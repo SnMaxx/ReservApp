@@ -5,6 +5,8 @@ import com.ReservApp.spring.enumeracion.Turno;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,6 +26,7 @@ public class Reserva {
     private Usuario cliente;
     @Temporal(TemporalType.DATE)
     private Date dia;
+    @Enumerated(EnumType.STRING)
     private Turno turno;
     @OneToOne
     private Mesa mesa;

@@ -41,7 +41,10 @@
 
                         <div class = "form-row">
                             <input type = "text" name="userID" placeholder="ID Usuario">
-                            <input type = "text" placeholder="No completar" disabled>
+                            <select th:field="*{comidas}" name="pedido">
+                                <option value="">Sin comida</option>
+                                <option th:each="comida: ${comidas}"  th:value="${comida.id}" th:text="${comida.nombre}"/>
+                            </select>
                         </div>
 
                         <div class = "form-row">
