@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="css/reserva.css">
     </head>
     <body>
-        
+
         <div class="contenedorBarra"> <!-- NUEVO -->
             <nav class="contenedorPrincipal">
                 <ul>
@@ -23,7 +23,7 @@
             <h2>RESERVA TU MESA AHORA</h2>
             <div class = "card-container">
                 <div class = "card-img">
-                     
+
                 </div>
 
                 <div class = "card-content">
@@ -42,7 +42,12 @@
                         <div class = "form-row">
                             <input type = "text" name="userID" placeholder="ID Usuario">
                             <select th:field="*{comidas}" name="pedido">
-                                <option value="">Sin comida</option>
+                                <option value="">Agregar Comida</option>
+                                <option value="">Pizza  $350</option>
+                                <option value="">Hamburguesas $350</option>
+                                <option value="">Pastas $350</option>
+                                <option value="">Bebida $350</option>
+                                <option value="">Postre $350</option>
                                 <option th:each="comida: ${comidas}"  th:value="${comida.id}" th:text="${comida.nombre}"/>
                             </select>
                         </div>
@@ -55,6 +60,6 @@
                 </div>
             </div>
         </section>
-        
+
     </body>
 </html>
