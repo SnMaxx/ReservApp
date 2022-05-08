@@ -43,11 +43,6 @@
                             <input type = "text" name="userID" placeholder="ID Usuario">
                             <select th:field="*{comidas}" name="pedido">
                                 <option value="">Agregar Comida</option>
-                                <option value="">Pizza  $350</option>
-                                <option value="">Hamburguesas $350</option>
-                                <option value="">Pastas $350</option>
-                                <option value="">Bebida $350</option>
-                                <option value="">Postre $350</option>
                                 <option th:each="comida: ${comidas}"  th:value="${comida.id}" th:text="${comida.nombre}"/>
                             </select>
                         </div>
