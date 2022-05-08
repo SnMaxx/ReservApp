@@ -55,14 +55,14 @@
 
             <div class="contenedor-ingreso" id="ingreso">
                 
-                <form th:action="@{/login}" method="POST">
+                <form th:action="@{/logincheck}" method="POST">
                     <!-- <label for="cor">Correo Electronico</label>         -->
                     <div class="nombre">
-                        <input type="email" id="cor" placeholder="Correo Electrónico">
+                        <input type="email" id="cor" placeholder="Correo Electrónico" name="email">
                     </div>
 
                     <div class="contraseña">
-                        <input type="password" placeholder="Contraseña">
+                        <input type="password" placeholder="Contraseña" name="password">
                     </div>
                     <div class="icono">
                         <img id="mostrar" src="img/ojo.png" alt="visible">

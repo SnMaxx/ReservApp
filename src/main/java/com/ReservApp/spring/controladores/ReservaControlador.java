@@ -1,10 +1,11 @@
 package com.ReservApp.spring.controladores;
 
 import com.ReservApp.spring.entidades.Producto;
+import com.ReservApp.spring.entidades.Usuario;
 import com.ReservApp.spring.servicios.ProductoServicios;
 import com.ReservApp.spring.servicios.ReservaServicios;
-import java.util.Date;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -24,9 +25,10 @@ public class ReservaControlador {
     private ProductoServicios productoServ;
     
     @GetMapping("")
-    public String reserva(ModelMap modelo){
+    public String reserva(ModelMap modelo, HttpSession session){
         
         List<Producto> productosLista = productoServ.traerTodo();
+        modelo.put("usuario",(Usuario) session.getAttribute("usuariosession"));
         
         modelo.addAttribute("comidas", productosLista);
         

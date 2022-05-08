@@ -19,13 +19,14 @@
             <img src="/img/logo.png" alt="logo" class="logo">
             <nav class="navigation">
                 <ul>
-                    <li><a href="login"><img src="img/iniciarsesion.png" class="iniciarsesion">Cuenta</a></li>
                     <!-- <li><a href="Registro.html"><img src="img/registrarse.png"
                                 class="registrarse">Registrarse</a></li> -->
                     <li><a href="form-comidas"><img src="img/carrito.png" class="carrito">Agregar comida</a></li>
                     <!--  avisar back que se oculte a menos que sea el admin -->
                     <li><a href="menu"><img src="img/menu.png" class="menu">Menu</a></li>
                     <li><a href="reserva"><img src="img/reserva.png" class="reserva">Reserva</a></li>
+                    <li sec:authorize="!isAuthenticated()"><a href="login"><img src="img/iniciarsesion.png" class="iniciarsesion">Cuenta</a></li>
+                    <li sec:authorize="isAuthenticated()"><a href="logout"><img src="img/logout.png" class="iniciarsesion">Salir</a></li>
                 </ul>
             </nav>
         </div>
