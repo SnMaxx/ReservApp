@@ -28,7 +28,12 @@
 
                 <div class = "card-content">
                     <h3>RESERVACIÓN</h3>
+                    
                     <form th:action="@{/reserva}" method="POST">
+                        <input type = "hidden" th:value="${usuario.id}" name="id">
+                        <div class="form-row msjError">  <!--NUEVOHIJODEPUTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-->
+                            <p th:if="${ReservError != null}" th:text="${ReservError}"></p>
+                        </div> 
                         <div class = "form-row">
                             <input type="date" name="dia">
 
@@ -40,7 +45,7 @@
                         </div>
 
                         <div class = "form-row">
-                            <input type = "text" name="userID" placeholder="ID Usuario">
+                            <input type = "text" th:value="${usuario.nombre}" disabled>
                             <select th:field="*{comidas}" name="pedido">
                                 <option value="">Agregar Comida</option>
                                 <option th:each="comida: ${comidas}"  th:value="${comida.id}" th:text="${comida.nombre}"/>

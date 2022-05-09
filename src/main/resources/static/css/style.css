@@ -1,83 +1,67 @@
-video {
+video{
     align-content: center;
     width: 100%;
 }
-
 @font-face {
-    font-family: Matilda;
-    src: url(/img/AmsterdamOne-eZ12l.ttf);
+    font-family:Matilda;
+    src: url(../img/AmsterdamOne-eZ12l.ttf);
 }
-
 @font-face {
     font-family: BEBAS;
-    src: url(/img/BebasNeue-Regular.ttf);
+    src: url(../img/BebasNeue-Regular.ttf);
 }
-
-@font-face {
-    font-family: KalamRegular;
-    src: url(/img/Kalam-Regular.ttf);
-}
-
-.logo {
+.logo{
     position: static;
     z-index: 999;
     height: auto;
     width: auto;
-    height: 190px;
-    width: 190px;
+  height: 190px;
+  width: 190px;
 }
-
-.iniciarsesion {
+.iniciarsesion{
     height: auto;
     width: auto;
     max-height: 25px;
     max-width: 25px;
 }
-
-.registrarse {
+.registrarse{
     height: auto;
     width: auto;
     max-width: 25px;
     max-height: 25px;
 }
-
-.carrito {
+.carrito{
     height: auto;
     width: auto;
     max-width: 25px;
     max-height: 25px;
 
 }
-
-.menu {
-    height: auto;
+.menu{
+     height: auto;
     width: auto;
     max-width: 25px;
-    max-height: 25px;
-}
+    max-height: 25px;}
 
-.reserva {
-    height: auto;
-    width: auto;
-    max-width: 25px;
-    max-height: 25px;
-}
-
-body {
+.reserva{ 
+        height: auto;
+        width: auto;
+        max-width: 25px;
+        max-height: 25px;}
+    
+body{
     position: static;
-    font-family: KalamRegular;
+    font-family: BEBAS;
     color: rgb(191, 50, 84);
     font-size: 1.2rem;
     line-height: 1.6em;
     margin: 0;
-    background: url(/img/FONDO.png);
+    background: url(../img/FONDO.png);
     background-size: 50% 50%;
     background-repeat: repeat-y;
     letter-spacing: 2px;
-    min-width: 720px !important;
 }
-
-h1 {
+h1{
     position: static;
     font-family: Matilda;
     font-size: 2rem;
@@ -86,8 +70,7 @@ h1 {
     color: rgb(0, 0, 0);
     text-decoration: underline;
 }
-
-.main p {
+.main p{ 
     position: static;
     color: rgb(191, 50, 84);
     font-style: italic;
@@ -98,22 +81,20 @@ h1 {
     align-content: left;
     position: relative;
     margin-bottom: 1.6em;
-    text-decoration: none
+    text-decoration:none
 }
-
-.container {
+.container{
     width: 85%;
     max-width: 850px;
     margin: 0 auto;
 }
-
-.header {
+.header{ 
     background: rgba(191, 50, 83, 0.178);
     color: rgb(255, 254, 236);
     padding: 0.25rem 0;
 }
-
-.header a {
+    
+.header a{
     position: static;
     letter-spacing: 0.4px;
     color: rgb(191, 50, 84);
@@ -123,61 +104,57 @@ h1 {
     font-size: 19px;
     font-weight: bolder;
 }
-
-.logo-nav-container {
-    margin-top: 10px;
-    text-align: center;
+.logo-nav-container{
+    text-align:center;
     height: 80px;
     display: flex;
     justify-content: space-between;
-
+  
 }
-
-.navigation {
-    margin-left: 5px;
-    margin-top: 5px;
-    margin-right: 5px;
+.navigation{
+margin-left: 5px;
+margin-top: 5px;
+margin-right: 5px;
+position: relative;
+z-index: 20;
 }
-
-.navigation ul {
+.navigation ul{
     margin: 0;
     padding: 0;
     list-style: none;
 
 
 }
-
-.navigation ul li {
+.navigation ul li{
     display: inline-block;
 
 }
-
 .navigation ul li a {
     display: block;
     padding: 0.5rem 1rem;
     transition: all 0.4s linear;
     border-radius: 5px;
 }
-
-.navigation ul li a:hover {
-    background-color: #ffffffe5
+.navigation ul li a:hover{
+background-color: #ffffffe5
 }
-
 /*Bar*/
 .contenedore {
     font-family: KalamRegular;
-    display: flex;
-    justify-content: space-evenly;
     background-color: rgba(191, 50, 83, 0.504);
     width: 100%;
     margin-bottom: 50px;
     display: flex;
     justify-content: flex-end;
+    min-width: 320;
 }
-
 .contenedore img {
     width: 30px;
     height: 30px;
+}
+.lugar img:hover{
+    transform: scale(2,2);
+    
 }
 
 .contenedora {
@@ -198,26 +175,23 @@ color: black;
     box-shadow:#ffffffe5;
 }
 .mapi {
-    display: flex;
-    justify-content: flex-start;
-    justify-content: center;
-    margin-top: 20px;
+        margin-top: 10px;
 }
 
 .horario {
+    text-align: center;
     display: flex;
-    justify-content: center;
+ justify-content: center;
     color: black;
     font-size: 20px;
-       margin-top: 80px;
+       margin-top: 45px;
        margin-right: 35px;
 }
 .tele{
     display: flex;
-    flex-direction: row;
-    border-spacing: 15px;
-    margin-right:   50px;
-    letter-spacing: 8px;
+    flex-direction:inherit;
+     margin-right:   50px;
+    letter-spacing: 6px;
 }
 .lugar {
    display: flex;
@@ -225,4 +199,3 @@ color: black;
    margin-right: 40px;
    margin-top: 60px;
     }
-/* Santi*/

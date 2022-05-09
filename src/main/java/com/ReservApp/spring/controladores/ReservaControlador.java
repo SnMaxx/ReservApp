@@ -4,9 +4,12 @@ import com.ReservApp.spring.entidades.Producto;
 import com.ReservApp.spring.entidades.Usuario;
 import com.ReservApp.spring.servicios.ProductoServicios;
 import com.ReservApp.spring.servicios.ReservaServicios;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@PreAuthorize("isAuthenticated()")
 @RequestMapping("/reserva")
 public class ReservaControlador {
     
@@ -36,14 +40,14 @@ public class ReservaControlador {
     }
     
     @PostMapping("")
-    public String guardar(/*ModelMap modelo, */@RequestParam String dia, @RequestParam String turno, @RequestParam Integer userID) throws Exception{
+    public String guardar(@DateTimeFormat(pattern = "yyyy-MM-dd") Date dia, @RequestParam String turno, @RequestParam String id, ModelMap modelo) throws Exception{
         try {
-            reservaServ.save(userID, dia, turno);
-            //modelo.put("exito", "Registro exitoso");
+            reservaServ.save(id, dia, turno);
             return "index";
         } catch(Exception e){
-            //modelo.put("error", "Falló al registrar");
-            return "reserva";
+            e.printStackTrace();
+            modelo.put("ReservError", e.getMessage()); 
+            return "redirect:/reserva";
         }
     }
 }

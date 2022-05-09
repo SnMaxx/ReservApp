@@ -11,11 +11,15 @@ import com.ReservApp.spring.entidades.Producto;
 import com.ReservApp.spring.entidades.Reserva;
 import com.ReservApp.spring.entidades.Usuario;
 import com.ReservApp.spring.enumeracion.Turno;
+import com.ReservApp.spring.repositorios.MesaRepositorio;
+import com.ReservApp.spring.repositorios.ProductoRepositorio;
 import com.ReservApp.spring.repositorios.ReservaRepositorio;
 import com.ReservApp.spring.repositorios.UsuarioRepositorio;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,40 +31,66 @@ import org.springframework.stereotype.Service;
 public class ReservaServicios {
     
     @Autowired
-    private ReservaRepositorio reservaRepositorio;
+    private ReservaRepositorio reservaRepo;
     
     
     @Autowired
     private UsuarioRepositorio userRepo;
     
+    private SimpleDateFormat formatD = new SimpleDateFormat("yyyy-MM-dd");
     
-    public Reserva save(Integer userID,String dia,String turno) throws Exception{
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        //validator(userID, dia, turno);
+    //@Autowired
+    //private ProductoRepositorio productoRepo;
+    
+    //@Autowired
+    //private MesaRepositorio mesaRepo;
+    
+    
+    public Reserva save(String userID,Date dia,String turno) throws Exception{
+        validator(turno, dia);
         Reserva reserva = new Reserva();
-        reserva.setCliente(userRepo.getById(userID));
-        //reserva.setComida(comida);
-        reserva.setDia(format.parse(dia));
-        //System.out.println(Turno.valueOf(turno));
-        reserva.setTurno(Turno.valueOf(turno));
+        Integer id = Integer.parseInt(userID);
         
-        //reserva.setMesa(siguienteMesa());
-        return reservaRepositorio.save(reserva);
+        
+        reserva.setCliente(userRepo.getById(id));
+        /* //COMIDAS
+        List<Producto> productos = new ArrayList();
+        productos.add(productoRepo.getById(Integer.parseInt(comidaID)));
+        reserva.setComida(productos); */ 
+        
+        reserva.setDia(dia);
+        reserva.setTurno(Turno.valueOf(turno));
+        /*
+        Mesa mesa = new Mesa();
+        mesa = mesaRepo.getById(siguienteMesaId(turno,dia));
+        reserva.setMesa(mesa);
+        */
+        return reservaRepo.save(reserva);
     }
     
-    public void validator(Integer userID,String dia,String turno) throws Exception{
-        if(userRepo.getById(userID)==null)
-            throw new Exception("Cliente invalido");
-        if(dia==null)
+    public void validator(String turno, Date dia) throws Exception{
+        
+        if(!turno.equalsIgnoreCase("cena") && !turno.equalsIgnoreCase("almuerzo"))
             throw new Exception("Turno invalido");
-        //if(siguienteMesa())
-        //    throw new Exception("Ya no hay mesas disponibles");
-        if(turno.equals("hour-select"))
-            throw new Exception("Turno invalido");
+        if(dia.compareTo(formatD.parse(formatD.format(new Date())))<0)
+            throw new Exception("Dia invalido");
+        System.out.println("Hola");
+        List<Reserva> reservas = reservaRepo.findAllByTurnoAndDia(Turno.valueOf(turno), dia);
+        System.out.println(reservas.size());
+        if(reservas.size() >= 3)
+            throw new Exception("No hay más mesas");
+        
     }
     
-    /*public Mesa siguienteMesa(){
-            return reservaRepositorio.siguienteMesa();
+    /*public Integer siguienteMesaId(String turno, String dia){
+        List<Reserva> reservas = reservaRepo.siguienteMesa(turno,dia);
+        List<Mesa> mesas = mesaRepo.findAll();
+        Integer mesaID;
+        if (!(reservas.size()<mesas.size())){
+            mesaID = reservas.size()+1;
+        }else mesaID = 1;
+        
+       return mesaID;
     }*/
     
     /*public void agregarComida(Integer idComida, Integer cantidad){

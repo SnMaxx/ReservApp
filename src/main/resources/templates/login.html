@@ -56,7 +56,13 @@
             <div class="contenedor-ingreso" id="ingreso">
                 
                 <form th:action="@{/logincheck}" method="POST">
-                    <!-- <label for="cor">Correo Electronico</label>         -->
+                    
+                    <div class="msjIngreso">  
+                         <p  th:if="${error != null}" th:text="${error}"></p>  
+                         <p class="verde"  th:if="${Exito != null}" th:text="${Exito}"></p> 
+                         <p  th:if="${noExito != null}" th:text="${noExito}"></p> 
+                    </div>
+                    
                     <div class="nombre">
                         <input type="email" id="cor" placeholder="Correo Electrónico" name="email">
                     </div>
@@ -84,6 +90,11 @@
 
             <div class="contenedor-registro" id="registro">
                 <form th:action="@{/register}" method="POST">
+                    
+                    <div class="msjRegistro">  <!--NUEVOHIJODEPUTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-->
+                       <p th:if="${RgError != null}" th:text="${RgError}"></p> 
+                    </div> 
+                    
                     <div class="NyA">
                         <input type="text" placeholder="Nombre y Apellido" name="nombre">
                     </div>

@@ -37,7 +37,8 @@ public class MainController {
             userServ.crearUsuario(nombre, email, password, password2);
             return "index";
         } catch(Exception e){
-            modelo.put("error", "Error al registrar");
+            modelo.put("RgError", e.getMessage());  
+            modelo.put("noExito", "Registro Fallido.");  
             return "login";
         }
     }
