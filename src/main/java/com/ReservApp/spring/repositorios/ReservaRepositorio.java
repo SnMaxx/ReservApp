@@ -1,6 +1,5 @@
 package com.ReservApp.spring.repositorios;
 
-import com.ReservApp.spring.entidades.Mesa;
 import com.ReservApp.spring.entidades.Reserva;
 import com.ReservApp.spring.enumeracion.Turno;
 import java.util.Date;

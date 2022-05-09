@@ -28,8 +28,6 @@ public class Reserva {
     private Date dia;
     @Enumerated(EnumType.STRING)
     private Turno turno;
-    @OneToOne
-    private Mesa mesa;
     @OneToMany
     private List<Producto> comida;
     private Integer precio;
@@ -37,10 +35,9 @@ public class Reserva {
     public Reserva() {
     }
 
-    public Reserva(Usuario cliente, Turno turno, Mesa mesa, List<Producto> comida, Integer precio, Date dia) {
+    public Reserva(Usuario cliente, Turno turno, List<Producto> comida, Integer precio, Date dia) {
         this.cliente = cliente;
         this.turno = turno;
-        this.mesa = mesa;
         this.comida = comida;
         this.precio = precio;
         this.dia = dia;
@@ -70,14 +67,6 @@ public class Reserva {
         this.turno = turno;
     }
 
-    public Mesa getMesa() {
-        return mesa;
-    }
-
-    public void setMesa(Mesa mesa) {
-        this.mesa = mesa;
-    }
-
     public List<Producto> getComida() {
         return comida;
     }
@@ -104,7 +93,7 @@ public class Reserva {
 
     @Override
     public String toString() {
-        return "Reserva{" + "id=" + id + ", cliente=" + cliente + ", turno=" + turno + ", mesa=" + mesa + ", comida=" + comida + ", precio=" + precio + ", dia=" + dia + '}';
+        return "Reserva{" + "id=" + id + ", cliente=" + cliente + ", turno=" + turno + ", comida=" + comida + ", precio=" + precio + ", dia=" + dia + '}';
     }
 
 }

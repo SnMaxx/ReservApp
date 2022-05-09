@@ -6,12 +6,10 @@
 package com.ReservApp.spring.servicios;
 
 
-import com.ReservApp.spring.entidades.Mesa;
 import com.ReservApp.spring.entidades.Producto;
 import com.ReservApp.spring.entidades.Reserva;
 import com.ReservApp.spring.entidades.Usuario;
 import com.ReservApp.spring.enumeracion.Turno;
-import com.ReservApp.spring.repositorios.MesaRepositorio;
 import com.ReservApp.spring.repositorios.ProductoRepositorio;
 import com.ReservApp.spring.repositorios.ReservaRepositorio;
 import com.ReservApp.spring.repositorios.UsuarioRepositorio;
@@ -60,11 +58,6 @@ public class ReservaServicios {
         
         reserva.setDia(dia);
         reserva.setTurno(Turno.valueOf(turno));
-        /*
-        Mesa mesa = new Mesa();
-        mesa = mesaRepo.getById(siguienteMesaId(turno,dia));
-        reserva.setMesa(mesa);
-        */
         return reservaRepo.save(reserva);
     }
     
