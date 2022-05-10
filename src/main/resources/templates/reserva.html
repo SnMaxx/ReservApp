@@ -9,12 +9,11 @@
     </head>
     <body>
 
-        <div class="contenedorBarra"> <!-- NUEVO -->
+        <div class="contenedorBarra">
             <nav class="contenedorPrincipal">
                 <ul>
                     <li><a href="/">Inicio</a> </li>
                     <li><a href="/menu">Menú</a></li>
-                    <!-- <li><a href="Reserva.html">Reserva</a></li> -->
                 </ul>
             </nav>
         </div>
@@ -31,30 +30,25 @@
                     
                     <form th:action="@{/reserva}" method="POST">
                         <input type = "hidden" th:value="${usuario.id}" name="id">
-                        <div class="form-row msjError">  <!--NUEVOHIJODEPUTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-->
-                            <p th:if="${ReservError != null}" th:text="${ReservError}"></p>
-                        </div> 
+                        
+                        <div class = "form-row saludo">
+                            <p type="text" th:text="|Hola, ${usuario.nombre}!|"></p>                            
+                        </div>
                         <div class = "form-row">
                             <input type="date" name="dia">
 
                             <select name = "turno">
-                                <option value = "hour-select">Turno</option>
+                                <option value = "">Turno</option>
                                 <option value = "ALMUERZO">Almuerzo</option>
                                 <option value = "CENA">Cena</option>
                             </select>
                         </div>
-
-                        <div class = "form-row">
-                            <input type = "text" th:value="${usuario.nombre}" disabled>
-                            <select th:field="*{comidas}" name="pedido">
-                                <option value="">Agregar Comida</option>
-                                <option th:each="comida: ${comidas}"  th:value="${comida.id}" th:text="${comida.nombre}"/>
-                            </select>
-                        </div>
-
                         <div class = "form-row">
                             <input type = "submit" value = "CONFIRMAR">
-                        </div>
+                        </div>                        
+                        <div class="form-row msjError">  
+                            <p th:if="${reservError != null}" th:text="|Error: ${reservError}|"></p>
+                        </div> 
                     </form>
                 </div>
             </div>

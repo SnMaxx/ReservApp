@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
 @Controller
 @RequestMapping("/")
 public class MainController {
@@ -41,23 +42,6 @@ public class MainController {
             modelo.put("noExito", "Registro Fallido.");  
             return "login";
         }
-    }
-    
-
-    
-    @GetMapping("/eliminar-comida")
-    public String eliminarComida(){
-        return "eliminar-comida";
-    }
-    
-    @GetMapping("/form-comidas")
-    public String formComidas(){
-        return "form-comidas";
-    }
-    
-    @GetMapping("/menu")
-    public String menu(){
-        return "menu";
     }
     
     @GetMapping("/resto")

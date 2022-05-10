@@ -1,6 +1,7 @@
 package com.ReservApp.spring.repositorios;
 
-import com.ReservApp.spring.entidades.Usuario;
+import com.ReservApp.spring.entidades.Menu;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -8,9 +9,9 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface UsuarioRepositorio extends JpaRepository<Usuario, Integer>{
+public interface MenuRepositorio extends JpaRepository<Menu, String>  {
     
-    @Query("SELECT c FROM Usuario c WHERE c.email = :email")
-    public Usuario findByEmail(@Param("email") String email);
-    
+    @Query("SELECT m FROM Menu m WHERE m.tipo = :tipo")    
+    public List<Menu> buscarPorTipo(@Param("tipo") String tipo); 
+     
 }

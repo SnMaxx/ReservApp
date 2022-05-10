@@ -50,6 +50,22 @@
     background-color: #ffffffe5;
 }
 
+.saludo{
+    padding-top: 5px;
+    color: black;
+    height: 30px;
+}
+
+.msjError{ 
+    letter-spacing: 0;
+    font-size: 12px;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 body{
     font-family: BEBAS;
     letter-spacing: 5px;
@@ -98,11 +114,13 @@ h3{
     font-size: 26px;
     font-weight: 500;
 }
-.form-row{
+.form-row {
     display: flex;
     width: 90%;
     margin: 0 auto;
 }
+
+
 form select, form input{
     display: block;
     width: 100%;
@@ -140,12 +158,4 @@ form input[type = submit]:hover{
     .card-img{
         height: 330px;
     }
-}
-
-.msjError{
-    justify-content: center;
-    align-items: center;
-    font-size: 11px;
-    color: red;   
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

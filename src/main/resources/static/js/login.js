@@ -5,18 +5,18 @@ let boton_ingre = document.getElementById("btn-ing");
 let barra = document.getElementById("sub");
 
 function ingreso() {
-    document.getElementById("ingreso").style.display = 'block';
+    ingre.style.display = 'block';
     boton_regis.style.color = 'rgb(133, 133, 133)';
     barra.style.gridColumn = '1/ span 3';
-    document.getElementById("registro").style.display = 'none';
+    regis.style.display = 'none';
     boton_ingre.style.color = 'black';
 }
 
 function registro() {
-    document.getElementById("registro").style.display = 'block';
+    regis.style.display = 'block';
     boton_regis.style.color = 'black';
     barra.style.gridColumn = '3/ span 5';
-    document.getElementById("ingreso").style.display = 'none';
+    ingre.style.display = 'none';
     boton_ingre.style.color = 'rgb(133, 133, 133)';
 }
 

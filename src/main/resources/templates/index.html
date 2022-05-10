@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -16,23 +16,23 @@
 <body>
     <header class="header">
         <div class="container logo-nav-container">
-            <img src="/img/logo.png" alt="logo" class="logo">
-            <nav class="navigation">
-                <ul>
-                    <!-- <li><a href="Registro.html"><img src="img/registrarse.png"
-                                class="registrarse">Registrarse</a></li> -->
-                    <li><a href="form-comidas"><img src="img/carrito.png" class="carrito">Agregar comida</a></li>
-                    <!--  avisar back que se oculte a menos que sea el admin -->
-                    <li><a href="menu"><img src="img/menu.png" class="menu">Menu</a></li>
-                    <li><a href="reserva"><img src="img/reserva.png" class="reserva">Reserva</a></li>
-                    <li sec:authorize="!isAuthenticated()"><a href="login"><img src="img/iniciarsesion.png" class="iniciarsesion">Cuenta</a></li>
-                    <li sec:authorize="isAuthenticated()"><a href="logout"><img src="img/logout.png" class="iniciarsesion">Salir</a></li>
-                </ul>
+            <img src="img/logo.png" alt="logo" class="logo">
+            <nav  th:replace="/fragments/navbar :: nav">
+                
+                 <!--    <ul>
+                 
+                    <li><a th:href="@{/usuario/registrar}"><img src="img/iniciarsesion.png" class="iniciarsesion">Cuenta</a></li>
+                    
+                    <li><a th:href="@{/menu/agregar}"><img src="img/carrito.png" class="carrito">Agregar comida</a></li>
+                    
+                    <li><a th:href="@{/menu/carta}"><img src="img/menu.png" class="menu">Menú</a></li>
+                    <li><a href="/reserva"><img src="img/reserva.png" class="reserva">Reserva</a></li>
+                </ul>-->
             </nav>
         </div>
 
         <video preload="auto" autoplay muted loop>
-            <source src="/img/banner.mp4" type="video/mp4">
+            <source src="img/banner.mp4" type="video/mp4">
         </video>
     </header>
     <main class="main">
@@ -41,14 +41,8 @@
 
             <p>Alegrar corazones por intermedio de nuestra comida es nuestro propósito de vida.</p>
             <p>Matilda es un emprendimiento familiar, que nace a raíz de las ganas de hacer algo en conjunto.
-                El ambiente que brindamos a nuestros clientes es cálido, familiar y muy ameno. Nos gusta que quien venga
-                a gozar de nuestro espacio se vaya contento y con sus expectativas cumplidas.</p>
-            <p>Nuestro nombre fue elegido en honor a Matilda Joslyn Gage, una científica a la que nunca reconocieron por
-                su trabajo e investigación por haber nacido mujer. Gracias a ella surgió un Movimiento llamado “No More
-                Matildas” cuyo objetivo es que no haya más mujeres en el ámbito de la ciencia (y en ninguna otra
-                profesión) que no sean distinguidas por su labor solo por el “hecho de no ser hombres”.Los nombres de
-                los platos tienen mucho que ver con este reconocimiento hacia las mujeres que lucharon por cambiar el
-                mundo.</p>
+                El ambiente que brindamos a nuestros clientes es cálido, familiar y muy ameno. Nos gusta que quien venga a gozar de nuestro espacio se vaya contento y con sus expectativas cumplidas.</p>
+            <p>Nuestro nombre fue elegido en honor a Matilda Joslyn Gage, una científica a la que nunca reconocieron por su trabajo e investigación por haber nacido mujer. Gracias a ella surgió un Movimiento llamado “No More Matildas” cuyo objetivo es que no haya más mujeres en el ámbito de la ciencia (y en ninguna otra profesión) que no sean distinguidas por su labor solo por el “hecho de no ser hombres”.Los nombres de los platos tienen mucho que ver con este reconocimiento hacia las mujeres que lucharon por cambiar el mundo.</p>
             <p>Nuestra carta cuenta con una amplia variedad de platos, para todo tipo de gustos.
                 Vení a conocernos, te esperamos cuando gustes!!!</p>
     </main>
@@ -59,7 +53,6 @@
     <footer>
 
         <div class="contenedore">
-
 
             <div class="contenedora">
                 <div class="horario">
@@ -93,6 +86,7 @@
                 </div>
             </div>
         </div>
+    
     </footer>
     <script src="login.js"></script>
 </body>
