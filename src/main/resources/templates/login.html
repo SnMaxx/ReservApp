@@ -59,6 +59,7 @@
                     <div class="msjIngreso">  
                          <p  th:if="${error != null}" th:text="${error}"></p>  
                          <p class="verde"  th:if="${Exito != null}" th:text="${Exito}"></p> 
+                         <p class="verde"  th:if="${logout != null}" th:text="${logout}"></p> 
                          <p  th:if="${noExito != null}" th:text="${noExito}"></p> 
                     </div>
                     
@@ -91,18 +92,18 @@
             </div>
 
             <div class="contenedor-registro" id="registro">
-                <form th:action="@{/usuario/registrar}" method="POST">
+                <form th:action="@{/register}" method="POST">
                     
                     <div class="msjRegistro">  <!--NUEVOHIJODEPUTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-->
                        <p th:if="${RgError != null}" th:text="${RgError}"></p> 
                     </div>     
                     
                     <div class="NyA">
-                        <input type="text" name="Nombre" placeholder="Nombre y Apellido">
+                        <input type="text" name="nombre" placeholder="Nombre y Apellido">
                     </div>
 
                     <div class="Correo">
-                        <input type="email" name="Email" placeholder="Correo Electrónico">
+                        <input type="email" name="email" placeholder="Correo Electrónico">
                     </div> 
 
                     <div class="icono_R1">
@@ -116,11 +117,11 @@
                     </div>
 
                     <div class="contra">
-                        <input type="password" name="Clave1" placeholder="Contraseña">
+                        <input type="password" name="password" placeholder="Contraseña">
                     </div>
 
                     <div class="contra2">
-                        <input type="password" name="Clave2" placeholder="Contraseña"> 
+                        <input type="password" name="password2" placeholder="Contraseña"> 
                     </div>
 
                     <div class="terminos">

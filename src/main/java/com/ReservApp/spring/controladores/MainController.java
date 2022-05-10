@@ -23,20 +23,22 @@ public class MainController {
     }
 
     @GetMapping("/login")
-    public String login(){
+    public String login(@RequestParam(required = false) String error, @RequestParam(required = false) String logout,ModelMap modelo){
+        if (error != null){
+            modelo.put("error", "Usuario o Contraseña incorrectos");
+        }
+        if (logout != null){
+            modelo.put("logout","Desconectado correctamente");
+        }
         return "login";
     }
-    
-    @PostMapping("/login")
-    public String logeo(){
-        return "login";
-    }
-    
+        
     @PostMapping("/register")
     public String registrar(ModelMap modelo, @RequestParam String nombre, @RequestParam String email, @RequestParam String password, @RequestParam String password2) throws Exception{
         try {
             userServ.crearUsuario(nombre, email, password, password2);
-            return "index";
+            modelo.put("Exito","Registrado exitosamente.");
+            return "login";
         } catch(Exception e){
             modelo.put("RgError", e.getMessage());  
             modelo.put("noExito", "Registro Fallido.");  
