@@ -40,7 +40,7 @@ public class ReservaController {
             reservaServ.save(usuario.getId(), dia, turno);
             return "index";
         } catch(Exception e){
-            e.printStackTrace();
+           // e.printStackTrace();
             modelo.put("reservError", e.getMessage()); 
             modelo.put("diaError",dia);
             modelo.put("turnoError",turno);
