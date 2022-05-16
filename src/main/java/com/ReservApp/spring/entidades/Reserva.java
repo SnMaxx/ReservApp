@@ -25,15 +25,13 @@ public class Reserva {
     private Date dia;
     @Enumerated(EnumType.STRING)
     private Turno turno;
-    private Integer precio;
 
     public Reserva() {
     }
 
-    public Reserva(Usuario cliente, Turno turno, Integer precio, Date dia) {
+    public Reserva(Usuario cliente, Turno turno, Date dia) {
         this.cliente = cliente;
         this.turno = turno;
-        this.precio = precio;
         this.dia = dia;
     }
 
@@ -61,14 +59,6 @@ public class Reserva {
         this.turno = turno;
     }
 
-    public Integer getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(Integer precio) {
-        this.precio = precio;
-    }
-
     public Date getDia() {
         return dia;
     }
@@ -79,7 +69,7 @@ public class Reserva {
 
     @Override
     public String toString() {
-        return "Reserva{" + "id=" + id + ", cliente=" + cliente + ", turno=" + turno + ", precio=" + precio + ", dia=" + dia + '}';
+        return "Reserva{" + "id=" + id + ", cliente=" + cliente + ", dia=" + dia + ", turno=" + turno + '}';
     }
 
 }
