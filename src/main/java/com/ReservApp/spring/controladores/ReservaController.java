@@ -2,6 +2,7 @@ package com.ReservApp.spring.controladores;
 
 import com.ReservApp.spring.entidades.Usuario;
 import com.ReservApp.spring.servicios.ReservaServicios;
+import java.time.LocalDate;
 import java.util.Date;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,8 @@ public class ReservaController {
         
     @GetMapping("")
     public String reserva(ModelMap modelo, HttpSession session){
-        
+        LocalDate now = LocalDate.now();
+        modelo.addAttribute("now", now);
         modelo.put("usuario",(Usuario) session.getAttribute("usuariosession"));
                 
         return "reserva";
@@ -43,6 +45,8 @@ public class ReservaController {
             modelo.put("diaError",dia);
             modelo.put("turnoError",turno);
             modelo.put("usuario",(Usuario) session.getAttribute("usuariosession"));
+            LocalDate now = LocalDate.now();
+            modelo.addAttribute("now", now);
             return "/reserva";
         }
     }

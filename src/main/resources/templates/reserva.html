@@ -34,9 +34,9 @@
                             <p type="text" th:text="|Hola, ${usuario.nombre}!|"></p>                            
                         </div>
                         <div class = "form-row">
-                            <input type="date" name="dia">
+                            <input required type="date" name="dia" th:attr="min=${now}">
 
-                            <select name = "turno">
+                            <select required name = "turno">
                                 <option value = "">Turno</option>
                                 <option value = "ALMUERZO">Almuerzo</option>
                                 <option value = "CENA">Cena</option>
