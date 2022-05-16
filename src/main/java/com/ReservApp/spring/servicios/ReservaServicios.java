@@ -22,11 +22,11 @@ public class ReservaServicios {
     
     private SimpleDateFormat formatD = new SimpleDateFormat("yyyy-MM-dd");
         
-    public Reserva save(String userID,Date dia,String turno) throws Exception{
+    public Reserva save(Integer userID,Date dia,String turno) throws Exception{
         
         validator(turno, dia);
         Reserva reserva = new Reserva();
-        Integer id = Integer.parseInt(userID);
+        Integer id = userID;
         reserva.setCliente(userRepo.getById(id));
         reserva.setDia(dia);
         reserva.setTurno(Turno.valueOf(turno));
@@ -47,5 +47,5 @@ public class ReservaServicios {
             throw new Exception("No hay más reservas diponibles para este horario!");
         
     }
-    
+
 }

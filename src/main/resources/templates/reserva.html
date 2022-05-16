@@ -29,7 +29,6 @@
                     <h3>RESERVACIÓN</h3>
                     
                     <form th:action="@{/reserva}" method="POST">
-                        <input type = "hidden" th:value="${usuario.id}" name="id">
                         
                         <div class = "form-row saludo">
                             <p type="text" th:text="|Hola, ${usuario.nombre}!|"></p>                            

@@ -32,9 +32,10 @@ public class ReservaController {
     }
     
     @PostMapping("")
-    public String guardar(@DateTimeFormat(pattern = "yyyy-MM-dd") Date dia, @RequestParam String turno, @RequestParam String id, ModelMap modelo, HttpSession session) throws Exception{
+    public String guardar(@DateTimeFormat(pattern = "yyyy-MM-dd") Date dia, @RequestParam String turno, ModelMap modelo, HttpSession session) throws Exception{
         try {
-            reservaServ.save(id, dia, turno);
+            Usuario usuario=(Usuario) session.getAttribute("usuariosession");
+            reservaServ.save(usuario.getId(), dia, turno);
             return "index";
         } catch(Exception e){
             e.printStackTrace();
