@@ -3,10 +3,6 @@
 Es una web con sistema de login en la que puedes crear y gestionar una reserva, para un restaurante.
 
 
-**Tabla de contenido**
-
-[TOC]
-
 # Vistas
 
 ## Inicio
